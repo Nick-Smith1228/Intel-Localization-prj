@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intel: Sustainability Through the Ages</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <img src="img/intel-header-logo.svg" alt="Intel Logo" />
+      <div class="hero-copy">
+        <p class="eyebrow">Innovation for a <span class="greener-word">greener</span> future</p>
+        <h1>Sustainability Through the Ages</h1>
+        <p>
+          Explore Intel's journey through time, discovering how our commitment
+          to innovation has shaped a more sustainable future for technology and
+          our planet.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section class="timeline-shell" aria-label="Intel timeline shell">
+        <div class="timeline" aria-label="Intel sustainability timeline">
+          <article class="timeline-item">
+            <span class="year-badge">1968</span>
+            <figure>
+              <img src="img/Founding.png" alt="Intel founding era" />
+            </figure>
+            <div class="timeline-content">
+              <h3>Intel Founded</h3>
+              <p>
+                Robert Noyce and Gordon Moore rename the newly formed company NM
+                Electronics to Intel Corporation, laying the foundation for decades
+                of technological innovation.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="year-badge">1971</span>
+            <figure>
+              <img src="img/First Microprocessor.png" alt="Microprocessor innovation" />
+            </figure>
+            <div class="timeline-content">
+              <h3>First Microprocessor</h3>
+              <p>
+                Intel debuts the 4004, the world's first commercial microprocessor,
+                igniting the microprocessor revolution and propelling the future of
+                computing devices.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="year-badge">1978</span>
+            <figure>
+              <img src="img/3.jpg" alt="Computer architecture growth" />
+            </figure>
+            <div class="timeline-content">
+              <h3>8086 Processor</h3>
+              <p>
+                Launch of the 8086 processor, establishing the x86 architecture that
+                drives countless PCs and servers in the modern era.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="year-badge">1985</span>
+            <figure>
+              <img src="img/4.jpg" alt="Personal computer era" />
+            </figure>
+            <div class="timeline-content">
+              <h3>386 Processor</h3>
+              <p>
+                Intel introduces the 386 processor with 32-bit architecture,
+                ushering in a new era of performance and multitasking for personal
+                computers.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="year-badge">2006</span>
+            <figure>
+              <img src="img/C02.png" alt="Environmental impact timeline" />
+            </figure>
+            <div class="timeline-content">
+              <h3>Peak GHG Emissions</h3>
+              <p>
+                This year marks Intel's highest annual greenhouse gas emissions for
+                operations. Over subsequent years, Intel invests heavily in chemical
+                abatement, renewable energy, and energy-efficient manufacturing to
+                reverse this trend.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="year-badge">2020</span>
+            <figure>
+              <img src="img/Sustainability.png" alt="Sustainability strategy" />
+            </figure>
+            <div class="timeline-content">
+              <h3>RISE Strategy</h3>
+              <p>
+                Intel launches its RISE strategy and 2030 goals, aiming to drive
+                industry-wide progress on climate action, water stewardship, and
+                waste reduction.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="year-badge">2022</span>
+            <figure>
+              <img src="img/2040 Goal.png" alt="Net zero commitment" />
+            </figure>
+            <div class="timeline-content">
+              <h3>Net-Zero By 2040</h3>
+              <p>
+                Intel announces its commitment to achieve net-zero greenhouse gas
+                emissions across its global operations by 2040, building on years
+                of environmental initiatives.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="year-badge">2023</span>
+            <figure>
+              <img src="img/renewable-electricity.png" alt="Renewable electricity" />
+            </figure>
+            <div class="timeline-content">
+              <h3>Renewable Electricity</h3>
+              <p>
+                The company achieves 99% renewable electricity usage worldwide,
+                helping to drastically lower carbon emissions and driving progress
+                toward Intel's long-term sustainability goals.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="year-badge">2024</span>
+            <figure>
+              <img src="img/Summit.png" alt="Sustainability summit" />
+            </figure>
+            <div class="timeline-content">
+              <h3>Sustainability Summit</h3>
+              <p>
+                Intel hosts its first Sustainability Summit, uniting suppliers,
+                government officials, and industry leaders to collaborate on
+                next-generation sustainable semiconductor manufacturing.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <p class="timeline-note">Grab or scroll to view timeline | Hover over cards to learn more!</p>
+    </main>
+
+    <script>
+      const timeline = document.querySelector('.timeline');
+
+      if (timeline) {
+        let isDown = false;
+        let startX = 0;
+        let startY = 0;
+        let scrollLeft = 0;
+        let scrollTop = 0;
+
+        const isMobileLayout = () => window.innerWidth <= 600;
+
+        timeline.addEventListener('mousedown', (event) => {
+          isDown = true;
+
+          if (isMobileLayout()) {
+            startY = event.pageY - timeline.offsetTop;
+            scrollTop = timeline.scrollTop;
+          } else {
+            startX = event.pageX - timeline.offsetLeft;
+            scrollLeft = timeline.scrollLeft;
+          }
+
+          timeline.style.cursor = 'grabbing';
+          timeline.style.userSelect = 'none';
+        });
+
+        timeline.addEventListener('mouseleave', () => {
+          isDown = false;
+          timeline.style.cursor = 'default';
+          timeline.style.userSelect = 'auto';
+        });
+
+        timeline.addEventListener('mouseup', () => {
+          isDown = false;
+          timeline.style.cursor = 'grab';
+          timeline.style.userSelect = 'auto';
+        });
+
+        timeline.addEventListener('mousemove', (event) => {
+          if (!isDown) return;
+          event.preventDefault();
+
+          if (isMobileLayout()) {
+            const y = event.pageY - timeline.offsetTop;
+            const walk = (y - startY) * 1.6;
+            timeline.scrollTop = scrollTop - walk;
+            return;
+          }
+
+          const x = event.pageX - timeline.offsetLeft;
+          const walk = (x - startX) * 1.6;
+          timeline.scrollLeft = scrollLeft - walk;
+        });
+
+        timeline.addEventListener(
+          'wheel',
+          (event) => {
+            if (Math.abs(event.deltaY) > 0) {
+              event.preventDefault();
+
+              if (isMobileLayout()) {
+                timeline.scrollTop += event.deltaY;
+              } else {
+                timeline.scrollLeft += event.deltaY;
+              }
+            }
+          },
+          { passive: false }
+        );
+
+        timeline.addEventListener('mouseenter', () => {
+          timeline.style.cursor = 'grab';
+        });
+      }
+    </script>
+  </body>
+</html>
