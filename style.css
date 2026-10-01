@@ -127,7 +127,7 @@ main {
 .timeline-item .year-badge {
   position: absolute;
   top: 18px;
-  right: 18px;
+  inset-inline-end: 18px;
   background: #0d6efd;
   border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(6px);
@@ -292,5 +292,201 @@ main {
 
   .timeline-content h3 {
     font-size: 1.2rem;
+  }
+}
+
+/* Keep the language picker and page sections easy to read in either direction. */
+.hero-copy {
+  text-align: start;
+}
+
+.language-picker {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+#language-select {
+  width: auto;
+  min-width: 150px;
+  margin-bottom: 22px;
+}
+
+.timeline-item {
+  border-radius: 8px;
+}
+
+.timeline-item:focus-visible {
+  outline: 3px solid #0d6efd;
+  outline-offset: 4px;
+}
+
+.timeline-item .year-badge {
+  opacity: 1;
+  transform: none;
+}
+
+.timeline-item figure::after {
+  display: none;
+}
+
+.timeline-content {
+  position: static;
+  padding: 18px;
+  color: #16212d;
+  opacity: 1;
+  transform: none;
+  background: #ffffff;
+}
+
+.timeline-content h2,
+.timeline-content h3 {
+  color: #16212d;
+}
+
+.timeline-content h2 {
+  font-size: 0.8rem;
+}
+
+.timeline-content p {
+  max-width: none;
+  color: #2d3b4b;
+  font-size: 0.95rem;
+}
+
+.timeline-note {
+  margin: 20px auto 48px;
+  max-width: 70ch;
+}
+
+.topic-section,
+.questions-section,
+.subscription-section {
+  max-width: 1120px;
+  margin: 0 auto 54px;
+}
+
+.topic-section h2,
+.questions-section h2,
+.subscription-section h2 {
+  margin-bottom: 22px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.topic-card {
+  border-color: #d7e0e8;
+  border-radius: 8px;
+}
+
+.topic-card .card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
+}
+
+.topic-card .bi {
+  color: #087e68;
+  font-size: 1.5rem;
+}
+
+.topic-card .btn {
+  margin-top: 8px;
+}
+
+.accordion-item,
+.accordion-button {
+  text-align: start;
+}
+
+.subscription-form {
+  max-width: 640px;
+}
+
+.subscription-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.subscription-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.subscription-controls .form-control {
+  min-width: 0;
+}
+
+.subscription-controls .btn {
+  flex: 0 0 auto;
+}
+
+.form-note,
+.form-status {
+  margin: 10px 0 0;
+  color: #344555;
+  font-size: 0.9rem;
+}
+
+.site-footer {
+  padding: 22px 20px;
+  background: #102b46;
+  color: #ffffff;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .timeline-shell {
+    padding-top: 26px;
+  }
+
+  .timeline-shell::before {
+    right: auto;
+    left: 18px;
+  }
+
+  html[dir="rtl"] .timeline-shell::before {
+    right: 18px;
+    left: auto;
+  }
+
+  .timeline {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  html[dir="rtl"] .timeline {
+    padding-right: 28px;
+    padding-left: 14px;
+  }
+
+  .subscription-controls {
+    flex-direction: column;
+  }
+
+  .subscription-controls .btn {
+    align-self: flex-start;
+  }
+
+  html[dir="rtl"] .subscription-controls .btn {
+    align-self: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
